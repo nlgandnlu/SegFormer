@@ -34,7 +34,7 @@ De_Disease:
 python -m torch.distributed.launch --nproc_per_node=4 run_language_modeling.py --output_dir=dir/   --model_type=bert   --model_name_or_path=bert-base-german-cased   --do_train   --do_eval   --evaluate_during_training    --train_data_file=train_file_name/   --eval_data_file=val_file_name/  --line_by_line --block_size 48   --num_train_epochs 20   --learning_rate 1e-5   --warmup_steps 100   --logging_steps 5   --save_steps 5   --per_device_train_batch_size 2   --gradient_accumulation_steps 4   --overwrite_output_dir --evaluation_strategy=step --per_device_eval_batch_size 64 --con_loss --yuzhi 0.5 --choice 0 --label_num 25 --save_total_limit 1
 
 De_City:  
-python -m torch.distributed.launch --nproc_per_node=4 run_language_modeling.py --output_dir=dir/   --model_type=bert   --model_name_or_path=bert-base-german-cased   --do_train   --do_eval   --evaluate_during_training    --train_data_file=train_file_name/   --eval_data_file=val_file_name/  --line_by_line --block_size 48   --num_train_epochs 20   --learning_rate 1e-5   --warmup_steps 1000   --logging_steps 5   --save_steps 5   --per_device_train_batch_size 2   --gradient_accumulation_steps 4   --overwrite_output_dir --evaluation_strategy=step --per_device_eval_batch_size 64 --con_loss --yuzhi 0.5 --choice 0 --label_num 27 --save_total_limit 1
+python -m torch.distributed.launch --nproc_per_node=4 run_language_modeling.py --output_dir=dir/   --model_type=bert   --model_name_or_path=bert-base-german-cased   --do_train   --do_eval   --evaluate_during_training    --train_data_file=train_file_name/   --eval_data_file=val_file_name/  --line_by_line --block_size 48   --num_train_epochs 20   --learning_rate 1e-5   --warmup_steps 1000   --logging_steps 50   --save_steps 50   --per_device_train_batch_size 2   --gradient_accumulation_steps 4   --overwrite_output_dir --evaluation_strategy=step --per_device_eval_batch_size 64 --con_loss --yuzhi 0.5 --choice 0 --label_num 27 --save_total_limit 1
 
 ### Test:  
 Only put these files under model_save_path:  
@@ -46,10 +46,12 @@ Only put these files under model_save_path:
 --vocab.txt  
 
 For En_Disease and En_City:  
-python test.py --model_type=bert  --output_dir=dir --model_name_or_path=model_save_path  --do_eval --eval_data_file=test_file_path --line_by_line --block_size 48 --per_device_eval_batch_size 64 --English  
+python test.py --model_type=bert  --output_dir=dir --model_name_or_path=model_save_path  --do_eval --eval_data_file=test_file_path --line_by_line --block_size 48 --per_device_eval_batch_size 64 --English --dataset_size x  
 
 For De_Disease and De_City:  
-python test.py --model_type=bert  --output_dir=dir --model_name_or_path=model_save_path  --do_eval --eval_data_file=test_file_path --line_by_line --block_size 48 --per_device_eval_batch_size 64  
+python test.py --model_type=bert  --output_dir=dir --model_name_or_path=model_save_path  --do_eval --eval_data_file=test_file_path --line_by_line --block_size 48 --per_device_eval_batch_size 64 --dataset_size x  
+
+x=718(En_Disease),3907(En_City),464(De_Disease),2507(De_City). This number includes articles with PK=0 that only have one sentence.
 
 ### Contact by email:
 haitao.bai@stu.xjtu.edu.cn
