@@ -20,8 +20,9 @@ Download from https://github.com/sebastianarnold/WikiSection (use the .ref files
 
 ### Pre-processing:
 1.Set the dataset name in line#7 of split_trainvaltest.py  
-2.python split_trainvaltest.py  
-3.Put the generated folders under sequence-labeling/.  
+2.Place the extracted three folders of the corresponding dataset in the same directory.  
+3.python split_trainvaltest.py  
+4.Put the generated folders under sequence-labeling/.  
 
 ### Train (The code will save the best pk checkpoint on the test dataset):
 cd .../transformers/examples/pytorch/sequence-labeling/   
