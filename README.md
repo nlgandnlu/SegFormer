@@ -55,6 +55,6 @@ python test.py --model_type=bert  --output_dir=dir --model_name_or_path=model_sa
 
 x=718(En_Disease),3907(En_City),464(De_Disease),2507(De_City). This number includes articles with PK=0 that only have one sentence.
 
-### Contact by email:
+### Feel free to contact by email:
 haitao.bai@stu.xjtu.edu.cn
 
