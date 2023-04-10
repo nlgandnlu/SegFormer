@@ -7,9 +7,10 @@ pip install --editable .
 
 ### Hardware requirements:  
 Quadro rtx8000*4 (Gpu memory: 48G).  
-Reducing the blocks_size (16,24,32) and batch_size can reduce the use of GPU memory.  
-Another way is to limit the maximum input length of articles in split_trainvaltest.py (we set the maximum input length=150).  
-Changing the logging_steps and save_steps can accelerate the training speed.
+
+### To reduce GPU memory usage and accelerate training:  
+1.Reducing the blocks_size (16,24,32) and batch_size can reduce the use of GPU memory. Another way is to limit the maximum input length of articles in split_trainvaltest.py (we set the maximum input length=150 following Transformer^2).  
+2.Increasing the logging_steps and save_steps can accelerate the training speed.
 
 ### Software requirements:  
 see requirements.txt
