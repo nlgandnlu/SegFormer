@@ -46,10 +46,10 @@ Only put these files under model_save_path:
 --vocab.txt  
 
 For En_Disease and En_City:  
-python test.py --model_type=bert  --output_dir=dir --model_name_or_path=model_save_path  --do_eval --eval_data_file=test_file_path --line_by_line --block_size 48 --per_device_eval_batch_size 64 --English --dataset_size x  
+python test.py --model_type=bert  --output_dir=dir --model_name_or_path=model_save_path  --do_eval --eval_data_file=test_file_path --line_by_line --block_size 48 --per_device_eval_batch_size 2 --English --dataset_size x  
 
 For De_Disease and De_City:  
-python test.py --model_type=bert  --output_dir=dir --model_name_or_path=model_save_path  --do_eval --eval_data_file=test_file_path --line_by_line --block_size 48 --per_device_eval_batch_size 64 --dataset_size x  
+python test.py --model_type=bert  --output_dir=dir --model_name_or_path=model_save_path  --do_eval --eval_data_file=test_file_path --line_by_line --block_size 48 --per_device_eval_batch_size 2 --dataset_size x  
 
 x=718(En_Disease),3907(En_City),464(De_Disease),2507(De_City). This number includes articles with PK=0 that only have one sentence.
 
